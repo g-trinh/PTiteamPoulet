@@ -54,7 +54,7 @@ public class PhoneService {
 
     public Phone getOnePhone( Long phoneId, boolean anonymousMode ){
         Phone phone = phoneRepository.findOne(phoneId);
-        if(anonymousMode) phone = setAnonymMode(phone) ;
+        if(anonymousMode && phone != null) phone = setAnonymMode(phone) ;
         return phone;
     }
 

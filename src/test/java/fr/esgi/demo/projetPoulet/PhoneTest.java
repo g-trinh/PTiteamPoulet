@@ -26,7 +26,7 @@ public class PhoneTest {
 
     @Test
     public void phoneTest(){
-        List<Phone> phones = phoneService.getAllStolen();
+        List<Phone> phones = phoneService.getAllStolen(true);
 
         for( Phone phone : phones ){
             assertThat( phone.getFirstName(), is("*******") );

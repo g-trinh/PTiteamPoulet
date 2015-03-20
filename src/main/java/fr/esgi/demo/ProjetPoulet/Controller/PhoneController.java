@@ -42,7 +42,7 @@ public class PhoneController {
 
     @RequestMapping(method = GET)
     public List<Phone> getAllStolenPhones(){
-        List<Phone> phoneList = phoneService.getAllStolen();
+        List<Phone> phoneList = phoneService.getAllStolen(true);
         if( phoneList.isEmpty() ){
             throw new EmptyContentException( "No stolen phone found." );
         }

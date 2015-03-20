@@ -114,11 +114,11 @@ public class PhoneControllerTest {
         given()
                 .log().all()
         .when()
-                .get("/phone/2")
+                .get("/phone/6")
         .then()
                 .log().all()
                 .statusCode(HttpStatus.OK.value())
-                .body("stolen", is(false) )
+                .body("stolen", is(true) )
         ;
     }
 
