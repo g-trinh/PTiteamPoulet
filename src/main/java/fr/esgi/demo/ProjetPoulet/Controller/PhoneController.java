@@ -9,6 +9,7 @@ import fr.esgi.demo.ProjetPoulet.Service.PhoneService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
 
 import static org.springframework.http.HttpStatus.CREATED;
@@ -51,12 +52,14 @@ public class PhoneController {
     }
 
     @RequestMapping(method = GET, value = "/{phoneId}")
-    public Phone getOnePhoneByID(@PathVariable Long phoneId){
+    public HashMap<String, Boolean> getOnePhoneByID(@PathVariable Long phoneId){
 
-        Phone phone = phoneService.getOnePhone(phoneId, true);
+        Phone phone = phoneService.getOnePhone(phoneId, false);
 
         if (phone != null){
-            return phone;
+            HashMap<String, Boolean> result = new HashMap<String, Boolean>();
+            result.put( "stolen", Boolean.valueOf( phone.isStolen() ) );
+            return result;
         } else {
             throw new EmptyContentException("Ton phone existe pas. Stop smoking plz.");
         }
