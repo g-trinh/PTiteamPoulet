@@ -85,4 +85,10 @@ public class PhoneService {
 
         return phones;
     }
+
+    public Phone getOnePhoneBySerialNumber(String serialNumber, boolean anonymousMode) {
+        Phone phone = phoneRepository.findBySerialNumber(serialNumber);
+        if(anonymousMode && phone != null) phone = setAnonymMode(phone) ;
+        return phone;
+    }
 }

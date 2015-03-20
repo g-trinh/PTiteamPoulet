@@ -14,4 +14,6 @@ public interface PhoneRepository extends CrudRepository<Phone, Long> {
 
     public List<Phone> findByStolen(boolean stolen);
 
+    public Phone findBySerialNumber(String serialNumber);
+
 }

@@ -62,9 +62,9 @@ public class PhoneController {
         }
     }
 
-    @RequestMapping(method = PUT, value = "/{phoneId}")
-    public Phone changePhoneStolenStatus(@PathVariable Long phoneId){
-        Phone phone = phoneService.getOnePhone(phoneId, true);
+    @RequestMapping(method = PUT, value = "/{serialNumber}")
+    public Phone changePhoneStolenStatus(@PathVariable String serialNumber){
+        Phone phone = phoneService.getOnePhoneBySerialNumber(serialNumber, true);
 
         if (phone != null){
             phone = phoneService.changeStolenStatus( phone );

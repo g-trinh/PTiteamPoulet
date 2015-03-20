@@ -19,7 +19,11 @@ public class InitRepository {
     public void init() {
         if(phoneRepository.count() == 0) {
             for( int i = 1; i < 10; i++ ){
-                Phone.Builder builder = Phone.newUser().withSerialNumber("0321468").withFirstName("Guillaume").withLastName("Trinh").withNumber("0321454");
+                Phone.Builder builder = Phone.newUser()
+                        .withSerialNumber("0321468" + i)
+                        .withFirstName("Guillaume")
+                        .withLastName("Trinh")
+                        .withNumber("0321454");
 
                 if( i % 2 == 0 ) builder.withStolen(true);
                 else builder.withStolen(false);

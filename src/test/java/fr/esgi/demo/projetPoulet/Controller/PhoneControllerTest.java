@@ -124,7 +124,7 @@ public class PhoneControllerTest {
 
     @Test
     public void should_UpdateAndReturnPhone(){
-        Response response = get("/phone/2");
+        Response response = get("/phone/5");
         boolean stolen;
 
         HashMap<String, Object> phoneAttr = response.getBody().path("");
@@ -138,7 +138,7 @@ public class PhoneControllerTest {
         given()
                 .log().all()
         .when()
-                .put("/phone/2")
+                .put("/phone/03214685")
         .then()
                 .log().all()
                 .statusCode(HttpStatus.OK.value())
